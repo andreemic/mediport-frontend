@@ -3,7 +3,7 @@ cavities = (
     'Cavities are permanently damaged areas in the hard surface of your teeth '
     'that develop into tiny openings or holes. Cavities, also called tooth decay '
     'or caries, are caused by a combination of factors, including bacteria in your '
-    'mouth, frequent snacking, sipping sugary drinks and not clearning your teeth '
+    'mouth, frequent snacking, sipping sugary drinks and not cleaning your teeth '
     'well.'
 )
 gingivitis = (
@@ -29,15 +29,15 @@ bleeding_gums = (
 dental_plaque = (
     'Dental plaque is a sticky, colorless film of bacteria that constantly forms on your '
     'teeth. It makes teeth "feel fuzzy" to the tongue and is most noticeable when teeth '
-    'are not brushed. Over a period of time, plaque buildup can damage the outer layer in '
+    'are not brushed. Over a period of time, plaque buildup can damage the outer layer on '
     'your teeth and cause cavities. Plaque buildup can be prevented by brushing your teeth '
-    'at least twice a day.'
+    'regularly at least twice a day.'
 )
 tartar = (
     # https://crest.com/en-us/oral-health/conditions/tartar-plaque/plaque-tartar-causes-prevention-removal
     'Tartar, or dental calculus, is a yellow or brown colored deposit that forms when '
-    'hardens on your teeth. Because tartar buildup on teeth is strongly bonded to the '
-    'tooth surface, it can only be removed by a dental professional.'
+    'plaque hardens on your teeth. Because tartar buildup on teeth is strongly bonded to '
+    'the tooth surface, it can only be removed by a dental professional.'
 )
 filling = (
     # https://coastaldentalcare.com.au/blog/what-is-a-tooth-filling/
