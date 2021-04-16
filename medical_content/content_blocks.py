@@ -6,7 +6,7 @@ cavities = (
     'mouth, frequent snacking, sipping sugary drinks and not clearning your teeth '
     'well.'
 )
-gingivities = (
+gingivitis = (
     # https://www.healthline.com/health/gingivitis#TOC_TITLE_HDR_1
     'Gingivitis is an inflammation of the the gingiva, the part of your gum around '
     'the base of your teeth. Gingivitis is usually caused by a bacterial infection '
