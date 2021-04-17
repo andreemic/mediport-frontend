@@ -104,7 +104,7 @@ function ReportApp() {
                 </Link>
             </Section>
             {report && <Section id={"section2"}>
-                <div className={"w-4/6 m-auto bg-white shadow-md p-8 grid grid-cols-3 gap-2 rounded-md"}>
+                <div className={"w-4/6 m-auto bg-white shadow-md p-8 grid grid-rows-1 grid-cols-3 gap-2 rounded-md h-5/6"}>
                     {/*<div>*/}
                     {/*    <h2 className={"text-6xl font-bold text-pink-600"}>MEDIPORT</h2>*/}
 
@@ -115,15 +115,31 @@ function ReportApp() {
                             {paragraph}
                         </p>)}
                     </div>}
-                    {diagnoses && <div className={"col-span-2"}>
+                    {diagnoses && <div className={"col-span-2 flex flex-col "}>
                         <Jaw selectedDiagnosis={selectedDiagnosis} teeth={teeth} allDiagnoses={diagnoses}/>
-                        <div className={"flex flex-wrap w-full"}>
+                        <div className={"flex flex-wrap w-full overflow-y-auto"}>
                             {report.issues_global.map(issueKey => {
                                 let diag = diagnoses[issueKey]
                                 return <div key={`iss-${issueKey}`}
-                                          className={"relative cursor-default rounded-md hover:bg-blue-100 px-3 py-2 pb-6 m-2"}
+                                          className={"relative inline-block cursor-default rounded-md hover:bg-blue-100 px-3 py-2 pb-6 m-2"}
                                           onMouseLeave={() => setSelectedDiagnosis(null)}
                                           onMouseEnter={() => setSelectedDiagnosis(issueKey)} style={{flex: '45%'}}>
+                                    <b>{diag.display_name}</b> {diag.description}
+
+                                    <span data-tip={`Chat about this topic`}
+                                          onClick={() => startChat(diag.display_name)}
+                                          className={"chaticon opacity-50 cursor-pointer hover:opacity-100 transition duration-200 ease float-right w-8 absolute right-4 bottom-2"}>
+                                    <img src={ChatIcon}/>
+                                    <ReactTooltip effect={'solid'} delayShow={300}/>
+                                </span>
+                                </div>
+                            })}
+                            {report.issues_global.map(issueKey => {
+                                let diag = diagnoses[issueKey]
+                                return <div key={`iss-${issueKey}`}
+                                            className={"relative inline-block cursor-default rounded-md hover:bg-blue-100 px-3 py-2 pb-10 m-2"}
+                                            onMouseLeave={() => setSelectedDiagnosis(null)}
+                                            onMouseEnter={() => setSelectedDiagnosis(issueKey)} style={{flex: '45%'}}>
                                     <b>{diag.display_name}</b> {diag.description}
 
                                     <span data-tip={`Chat about this topic`}
