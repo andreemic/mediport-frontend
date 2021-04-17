@@ -1,0 +1,285 @@
+.jaw-con {
+    display: flex;
+    justify-content: space-around;
+}
+.jaw-bg {
+    width: 316px;
+    height: 290px;
+    position: relative;
+}
+.jaw-overlay {
+    background: rgba(0,0,0,0.4);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    height: 100%;
+}
+
+.upper-jaw {
+    background-image: url(../images/oberkiefer.png);
+}
+
+.lower-jaw {
+    background-image: url(../images/unterkiefer.png);
+}
+
+.tooth {
+    position: absolute;
+    z-index: 10;
+}
+
+.tooth-con .tooltip {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease opacity, 0s 0.3s visibility;
+    position: absolute;
+    margin-top: 10px;
+    border-radius: 4px;
+    z-index: 100;
+}
+.tooltip-left {
+    top: 50%;
+    transform: translateY(-50%);
+    right: calc(100% + 10px);
+}
+.tooltip-topleft {
+    top: 25%;
+    transform: translateY(-50%);
+    right: calc(100% + 15px);
+}
+.tooltip-top {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(100% + 10px);
+}
+.tooltip-topright {
+    top: 25%;
+    transform: translateY(-50%);
+    left: calc(100% + 15px);
+}
+.tooltip-right {
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(100% + 10px);
+}
+.tooltip ul {
+    list-style-type: none;
+}
+.tooltip ul li {
+    white-space: nowrap;
+}
+
+.notes-title {
+    position: absolute;
+    top: -9px;
+    border-radius: 4px;
+    font-size: 11px;
+    left: 3px;
+    padding: 1px 4px;
+}
+.tooth-con img {
+    z-index: 10;
+}
+
+.tooth-con:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+
+    transition:0.3s ease opacity, visibility 0s;
+}
+
+.tooth-con .circle {
+    opacity: 0;
+    transition: opacity .2s ease-out;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+}
+.tooth-con.highlighted .circle {
+    opacity: 0.5;
+}
+.tooth-con.highlighted .circle-bg {
+    background-color: rgba(96, 165, 250, 1);
+    content: "";
+
+    z-index: 5;
+}
+.tooth-issues_0 {}
+.tooth-issues_1 {
+    filter: invert(52%) sepia(68%) saturate(3474%) hue-rotate(161deg) brightness(94%) contrast(104%) opacity(0.2);
+}
+.tooth-issues_2 {
+    filter: invert(52%) sepia(68%) saturate(3474%) hue-rotate(161deg) brightness(94%) contrast(104%) opacity(0.3);
+}
+.tooth-issues_3 {
+    filter: invert(52%) sepia(68%) saturate(3474%) hue-rotate(161deg) brightness(94%) contrast(104%) opacity(0.7);
+}
+
+.tooth-11 {
+    left: 127px;
+    top: 0px;
+}
+
+.tooth-12 {
+    left: 99px;
+    top: 4px;
+}
+
+.tooth-13 {
+    left: 78px;
+    top: 20px;
+}
+
+.tooth-14 {
+    left: 52px;
+    top: 34px;
+}
+
+.tooth-15 {
+    left: 32px;
+    top: 61px;
+}
+
+.tooth-16 {
+    left: 18px;
+    top: 95px;
+}
+
+.tooth-17 {
+    left: 8px;
+    top: 142px;
+}
+
+.tooth-18 {
+    left: 3px;
+    top: 191px;
+}
+
+.tooth-21 {
+    left: 158px;
+    top: 1px;
+}
+
+.tooth-22 {
+    left: 188px;
+    top: 6px;
+}
+
+.tooth-23 {
+    left: 208px;
+    top: 22px;
+}
+
+.tooth-24 {
+    left: 220px;
+    top: 36px;
+}
+
+.tooth-25 {
+    left: 236px;
+    top: 61px;
+}
+
+.tooth-26 {
+    left: 248px;
+    top: 95px;
+}
+
+.tooth-27 {
+    left: 256px;
+    top: 142px;
+}
+
+.tooth-28 {
+    left: 263px;
+    top: 191px;
+}
+
+.tooth-41 {
+    left: 138px;
+    top: 1px;
+}
+
+.tooth-42 {
+    left: 111px;
+    top: 4px;
+}
+
+.tooth-43 {
+    left: 86px;
+    top: 14px;
+}
+
+.tooth-44 {
+    left: 58px;
+    top: 33px;
+}
+
+.tooth-45 {
+    left: 40px;
+    top: 61px;
+}
+
+.tooth-46 {
+    left: 22px;
+    top: 94px;
+}
+
+.tooth-47 {
+    left: 14px;
+    top: 142px;
+}
+
+.tooth-48 {
+    left: 8px;
+    top: 188px;
+}
+
+.tooth-31 {
+    left: 164px;
+    top: 1px;
+}
+
+.tooth-32 {
+    left: 187px;
+    top: 5px;
+}
+
+.tooth-33 {
+    left: 206px;
+    top: 14px;
+}
+
+.tooth-34 {
+    left: 225px;
+    top: 33px;
+}
+
+.tooth-35 {
+    left: 242px;
+    top: 61px;
+}
+
+.tooth-36 {
+    left: 252px;
+    top: 94px;
+}
+
+.tooth-37 {
+    left: 262px;
+    top: 142px;
+}
+
+.tooth-38 {
+    left: 269px;
+    top: 188px;
+}
+
+.flip {
+    transform: scaleX(-1);
+}
