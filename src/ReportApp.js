@@ -63,7 +63,7 @@ function ReportApp() {
     }, [reportid])
 
     const handleNewUserMessage = useCallback((newMessage) => {
-        console.log(newMessage)
+        socketRef.current.emit("new_message", newMessage)
     }, []);
 
     const startChat = useCallback((subject) => {
@@ -138,7 +138,6 @@ function ReportApp() {
                     </div>}
                 </div>
             </Section>}
-            <span onClick={() => startChat("Caries")}>C</span>
             {chatSubject && <Widget subtitle={null} title={<span className={"text-gray-500"}>Chatting about <span
                 className={"text-blue-600"}>{chatSubject}</span></span>} handleNewUserMessage={handleNewUserMessage}/>}
         </div>}
