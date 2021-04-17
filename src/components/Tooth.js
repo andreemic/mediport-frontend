@@ -36,7 +36,7 @@ function Tooth({toothIdx, toothInfo, selectedDiagnosis, allDiagnoses, ...rest}) 
         <span
             className={`tooltip bg-gray-900 px-2 py-2 text-white bg-opacity-70 text-small tooltip-${tooltipDirection(toothIdx)}`}>
             <ul>
-                {allDiagnoses && toothInfo.issues.map(issue => <li>{allDiagnoses[issue].display_name}</li>)}
+                {allDiagnoses && toothInfo.issues.map(issue => <li key={`t-${toothIdx}-iss-${issue}`}>{allDiagnoses[issue].display_name}</li>)}
             </ul>
             {toothInfo.notes !== "" &&
             <div className={"mt-2 p-1 rounded-md w-full bg-gray-300 bg-opacity-50"}>

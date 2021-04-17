@@ -3,6 +3,7 @@ import firestore, {parseDocs} from "../util/firestore";
 import SmallSpinner from "./SmallSpinner";
 import reqStatus from "../util/reqStatus";
 import {Link} from "react-router-dom";
+import {startGeneratingReport} from "../util/api";
 
 function PatientContent({patient}) {
     const [appointments, setAppointments] = useState([])
@@ -45,7 +46,14 @@ function PatientContent({patient}) {
     }
     const genReport = () => {
         setReportRequestStatus(reqStatus.LOADING)
-        //Todo:
+
+        startGeneratingReport(patient.id, selectedAppointment.id).then(res => {
+            setSelectedAppointment(selectedAppointment => {
+                return {...selectedAppointment, report_creation_started: true}
+            })
+        }).catch(e => {
+
+        })
     }
 
     return <div className="flex flex-col flex-auto overflow-y-auto p-4 col-span-3">
@@ -94,30 +102,31 @@ function PatientContent({patient}) {
                     {!selectedAppointment.report_sent && selectedAppointment.report_created &&
                     <button
                         onClick={sendReport}
-                        className={"inline-flex justify-center items-center  h-10 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-48 self-end shadow-lg"}>
+                        className={"inline-flex items-center justify-center items-center h-10 bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded w-48 self-end shadow-lg"}>
                         {reportRequestStatus === reqStatus.NOT_STARTED ?
                             <span>Send Report to {patient.first_name}</span>
                             : <SmallSpinner/>}
                     </button>}
                     {!selectedAppointment.report_sent && !selectedAppointment.report_created && selectedAppointment.report_creation_started &&
                     <button
-                        className={"self-end w-56 bg-gray-400  h-10 inline-flex justify-center items-center px-4 py-2 border border-transparent text-base text-white font-bold py-2 px-4 rounded w-48 self-end shadow-lg transition ease-in-out duration-150 cursor-not-allowed"}>
+                        className={"self-end w-56 items-center bg-gray-400 h-10 inline-flex justify-center items-center px-4 py-2 border border-transparent text-base text-white font-bold py-2 px-4 rounded w-48 self-end shadow-lg transition ease-in-out duration-150 cursor-not-allowed"}>
                         <SmallSpinner/>
-                        Generating Report
+                        <span className={"ml-2"}>Generating Report</span>
                     </button>}
 
                     {!selectedAppointment.report_sent && !selectedAppointment.report_created && !selectedAppointment.report_creation_started &&
                     <button
                         onClick={genReport}
-                        className={"bg-blue-500 hover:bg-blue-700  h-10 text-white font-bold py-2 px-4 rounded w-48 self-end shadow-lg"}>
-                        Generate Report
+                        className={" inline-flex items-center justify-center bg-blue-500 hover:bg-blue-700  h-10 text-white font-bold py-2 px-4 rounded w-48 self-end shadow-lg"}>
+                        {reportRequestStatus === reqStatus.NOT_STARTED ?
+                            <span>Generate Report</span>
+                            : <SmallSpinner/>}
                     </button>}
 
                     {selectedAppointment.report_sent && <span
-                        className={"bg-green-500 hover:bg-green-600  h-10 text-white font-bold py-2 px-4 rounded w-48 self-end shadow-lg"}>>
-                    Report sent!
-                </span>
-                    }
+                        className={"bg-green-500 items-center cursor-default opacity-50 h-10 text-white flex justify-center font-bold py-2 px-4 rounded w-48 self-end"}>
+                   Report sent!
+                </span>}
                 </div>
             </div>}
         </div>}
