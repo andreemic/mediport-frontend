@@ -3,7 +3,7 @@ import firestore, {parseDocs} from "../util/firestore";
 import SmallSpinner from "./SmallSpinner";
 import reqStatus from "../util/reqStatus";
 import {Link} from "react-router-dom";
-import {startGeneratingReport} from "../util/api";
+import {sendReportToPatient, startGeneratingReport} from "../util/api";
 import firebase from "firebase";
 
 function PatientContent({patient}) {
@@ -44,7 +44,12 @@ function PatientContent({patient}) {
 
     const sendReport = () => {
         setReportRequestStatus(reqStatus.LOADING)
-        //Todo:
+        sendReportToPatient(patient.id, selectedAppointment.report_key).then(res => {
+            setReportRequestStatus(reqStatus.SUCCESS)
+            setSelectedAppointment(selApp => {
+                return {...selApp, report_sent: true};
+            })
+        })
     }
     const genReport = () => {
         setReportRequestStatus(reqStatus.LOADING)

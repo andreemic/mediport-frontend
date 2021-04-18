@@ -120,11 +120,12 @@ function ReportApp() {
                     {/*    <h2 className={"text-6xl font-bold text-pink-600"}>MEDIPORT</h2>*/}
 
                     {/*</div>*/}
-                    {report.gpt3_summary && <div className={"max-h-full overflow-auto"}>
+                    {report.overall_index && <div className={"max-h-full overflow-auto"}>
 
                         <h1 className={`font-semibold text-2xl mb-2`}>Your Dental Health</h1>
                         <div className={"flex items-stretch py-2 justify-center cursor-default"}>
-                            {report.overall_index && <div data-tip={"Combined dental health score."} className={"inline-block m-2"}>
+                            {report.overall_index &&
+                            <div data-tip={"Combined dental health score."} className={"inline-block m-2"}>
                                 <RatingCircle rating={report.overall_index}/>
                                 <div className={"text-center cursor-default text-center mt-2 text-gray-400"}>
                                     Overall Score
@@ -132,27 +133,38 @@ function ReportApp() {
                             </div>}
 
                             <div className={"flex flex-col justify-between cursor-default items-between px-10"}>
-                                {report.hygiene_index && <div data-tip={"Based on plaque and bacteria presence."} className={"flex flex-col justify-center items-center"}>
+                                {report.hygiene_index && <div data-tip={"Based on plaque and bacteria presence."}
+                                                              className={"flex flex-col justify-center items-center"}>
                                     <RatingCircle small rating={report.hygiene_index}/>
-                                    <div className={"text-center cursor-default text-center text-xs mt-1 text-gray-400"}>
+                                    <div
+                                        className={"text-center cursor-default text-center text-xs mt-1 text-gray-400"}>
                                         Hygiene Score
                                     </div>
                                 </div>}
-                                {report.health_index && <div data-tip={"Based on bleeding and tooth conditions."} className={"flex flex-col justify-center items-center"}>
+                                {report.health_index && <div data-tip={"Based on bleeding and tooth conditions."}
+                                                             className={"flex flex-col justify-center items-center"}>
                                     <RatingCircle small rating={report.health_index}/>
-                                    <div className={"text-center cursor-default text-center text-xs mt-1 text-gray-400"}>
+                                    <div
+                                        className={"text-center cursor-default text-center text-xs mt-1 text-gray-400"}>
                                         Health Score
                                     </div>
                                 </div>}
                                 <ReactTooltip delayShow={400} effect={"solid"} place={"bottom"}/>
                             </div>
                         </div>
-                        <h1 className={`font-semibold text-2xl`}>Summary</h1>
-                        {report.gpt3_summary?.map((paragraph, idx) => <p key={`summary-${idx}`}
-                                                                         className={"mb-3 p-2"}>
-                            {paragraph}
-                        </p>)}
+                        <div>
+                            <h1 className={`font-semibold text-2xl`}>Summary</h1>
+                            {report.gpt3_summary?.map((paragraph, idx) => <p key={`summary-${idx}`}
+                                                                             className={"mb-3 p-2"}>
+                                {paragraph}
+                            </p>)}
+                            <h1 className={`font-semibold text-2xl`}>Therapy</h1>
+                            <p className={"mb-3 p-2"}>
+                                {report.gpt3_therapy}
+                            </p>
+                        </div>
                     </div>}
+
                     {diagnoses && <div className={"col-span-2 flex flex-col justify-around"}>
                         <Jaw selectedDiagnosis={selectedDiagnosis} teeth={teeth} allDiagnoses={diagnoses}/>
                         <div className={"flex flex-wrap w-full overflow-y-auto"}>
@@ -173,8 +185,8 @@ function ReportApp() {
                                         <span className={"mr-2 text-gray-700 text-xs"}>Chat about this topic</span>
                                         <span
                                             className={"chaticon float-right w-8"}>
-                                        <img src={ChatIcon}/>
-                                        </span>
+                                <img src={ChatIcon}/>
+                                </span>
                                     </div>
 
                                 </div>
