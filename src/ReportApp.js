@@ -97,7 +97,7 @@ function ReportApp() {
             _toggleWidget()
     }, [addResponseMessage, _toggleWidget]);
 
-    return <div>
+    return <div style={{background: "#f2fdff"}}>
         {error && <div className={"p-4 bg-red-200 rounded-md border-2 border-red-300"}>
             {error}
         </div>}
@@ -121,7 +121,7 @@ function ReportApp() {
             </Section>
             {report && <Section id={"section2"}>
                 <div
-                    className={"w-4/6 m-auto shadow-md p-8 grid grid-rows-1 grid-cols-3 gap-2 rounded-md h-5/6"}>
+                    className={"w-4/6 m-auto shadow-md bg-white p-8 grid grid-rows-1 grid-cols-3 gap-2 rounded-md h-5/6"}>
                     {/*<div>*/}
                     {/*    <h2 className={"text-6xl font-bold text-pink-600"}>MEDIPORT</h2>*/}
 
@@ -218,8 +218,8 @@ function ReportApp() {
                 </div>
             }
                     title={<div className={"flex justify-center items-center space-x-2"}>
-                        <status-indicator className={"m-4"} positive={socketRef?.current?.connected}
-                                          intermediary={!socketRef?.current?.connected}/>
+                        {socketRef.current?.connected && <status-indicator className={"m-4"} positive/>}
+                        {!socketRef?.current?.connected && <status-indicator className={"m-4"} intermediary/>}
                         {chatSubject && <span className={"text-gray-500"}>Chatting about <span
                             className={"text-blue-600"}>{chatSubject}</span></span>}
                     </div>}
