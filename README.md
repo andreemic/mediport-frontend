@@ -10,7 +10,7 @@ Patients get a link to their report via email.
 
 ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/27695722/115143753-7ae7cb00-a049-11eb-8f8f-31cfdf86a37c.gif)
 
-The report informs the patient about their appointments. Patient can chat about them with GPT-3.
+The report informs the patient about their appointments. They can also chat about the terms with GPT-3.
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/27695722/115143724-4aa02c80-a049-11eb-92d8-aa0b49dcf169.gif)
 
