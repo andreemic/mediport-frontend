@@ -5,4 +5,4 @@ Clone, execute in directory:
 
 ```
 
-Make sure your npm and node are updated.
+Make sure your npm and node.js are updated and [backend](github.com/andreemic/mediport-frontend) is running on `http://localhost:5000`.
