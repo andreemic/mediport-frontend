@@ -1,3 +1,8 @@
-Teeth: 8/side/kiefer -> 16 pngs
+Clone, execute in directory:
+```
+  npm install
+  npm run
 
-18 - 11 + 41 - 48.png
+```
+
+Make sure your npm and node are updated.
