@@ -22,6 +22,7 @@ const teethNumbers = [11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26, 27
 function ReportApp() {
     let {reportid} = useParams();
     const [report, setReport] = useState(null)
+    const [widgetOpen, setWidgetOpen] = useState(false)
     const [error, setError] = useState(null)
     const [diagnoses, setDiagnoses] = useState(null)
     const [selectedDiagnosis, setSelectedDiagnosis] = useState(null);
@@ -69,6 +70,11 @@ function ReportApp() {
         socketRef.current.emit("new_message", newMessage.endsWith('?') ? newMessage : newMessage + '?')
     }, []);
 
+    const _toggleWidget = () => {
+        toggleWidget()
+        setWidgetOpen(!widgetOpen)
+    }
+
     const startChat = useCallback((subject = null) => {
         if (!socketRef.current) {
             const socket = socketIOClient(apiBase);
@@ -76,8 +82,6 @@ function ReportApp() {
 
             socketRef.current.on("connect", () => {
                 setChatSubject(subject)
-                if (subject !== null)
-                    toggleWidget()
             })
 
             socketRef.current.on("new_message", msg => {
@@ -89,7 +93,9 @@ function ReportApp() {
             setChatSubject(subject)
             socketRef.current.emit("start_chat", subject || "")
         }
-    }, [addResponseMessage, toggleWidget]);
+        if (subject !== null && !widgetOpen)
+            _toggleWidget()
+    }, [addResponseMessage, _toggleWidget]);
 
     return <div>
         {error && <div className={"p-4 bg-red-200 rounded-md border-2 border-red-300"}>
@@ -202,6 +208,7 @@ function ReportApp() {
                         onClick={() => {
                             if (!socketRef.current) startChat()
                             handleToggle()
+                            setWidgetOpen(!widgetOpen)
                         }}><img src={ChatIcon2}/>
                     </div>
                     <div
