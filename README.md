@@ -1,3 +1,7 @@
-Teeth: 8/side/kiefer -> 16 pngs
+Clone, execute in directory:
+```
+  npm install
+  npm start
+```
 
-18 - 11 + 41 - 48.png
+Make sure your npm and node.js are updated and [backend](https://github.com/andreemic/mediport-frontend) is running on `http://localhost:5000`.

@@ -18,8 +18,8 @@ async function postData(url = '', data = {}) {
 }
 
 
-export const apiBase =`http://192.168.178.24:5000`
-// export const apiBase = 'http://localhost:5000'
+// export const apiBase =`http://192.168.178.24:5000`
+export const apiBase = 'http://localhost:5000'
 // export const apiBase = 'http://192.168.178.50:5000'
 export function startGeneratingReport(patientId, appointmentId) {
     return postData('/create_report', {
