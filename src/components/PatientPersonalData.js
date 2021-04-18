@@ -2,7 +2,7 @@ import React from "react"
 
 function PatientPersonalData({patient}) {
     return <div className="flex flex-col flex-auto overflow-y-auto">
-        {patient === null && <h6>Choose a patient</h6>}
+        {patient === null && <h6 className={"p-6 text-gray-400 cursor-default"}>Choose a patient</h6>}
         {patient !== null &&
         <div className={"p-4 space-y-3"}>
             <div className={"flex flex-row"}>

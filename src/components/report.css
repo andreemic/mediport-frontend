@@ -4,6 +4,7 @@
     bottom: 100px;
     cursor: pointer;
 }
+
 .scroll-down-arrows span {
     position: absolute;
     top: 0;
@@ -20,20 +21,24 @@
     opacity: 0;
     box-sizing: border-box;
 }
+
 .scroll-down-arrows span:nth-of-type(1) {
     -webkit-animation-delay: 0s;
     animation-delay: 0s;
 }
+
 .scroll-down-arrows span:nth-of-type(2) {
     top: 16px;
     -webkit-animation-delay: .15s;
     animation-delay: .15s;
 }
+
 #section07 a span:nth-of-type(3) {
     top: 32px;
     -webkit-animation-delay: .3s;
     animation-delay: .3s;
 }
+
 @-webkit-keyframes sdb07 {
     0% {
         opacity: 0;
@@ -45,6 +50,7 @@
         opacity: 0;
     }
 }
+
 @keyframes sdb07 {
     0% {
         opacity: 0;
@@ -62,11 +68,119 @@
     display: inline;
     margin-top: -5px;
 }
+
 .rcw-conversation-container > .rcw-header {
     background-color: #edf2f7;
 }
+
 .rcw-launcher {
-
     background-color: #3182ce;
+}
 
+
+/* Rating item */
+.rating {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    overflow: hidden;
+
+    background: #2980b9;
+    color: #2980b9;
+    width: 10rem;
+    height: 10rem;
+
+    /* Basic style for the text */
+    font-size: calc(var(--rating-size) / 3);
+    line-height: 1;
+}
+
+.rating.small {
+    width: 4.6rem;
+    height: 4.6rem;
+}
+
+
+/* Rating circle content */
+.rating span {
+    position: relative;
+    display: flex;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.rating.small span  {
+    font-size: 0.5em;
+    font-weight: 900;
+    align-self: center;
+}
+
+/* Bar mask, creates an inner circle with the same color as thee background */
+:root {
+    --rating-size: 10rem;
+    --bar-size: 1rem;
+    --background-color: #fff;
+    --rating-color-default: #2980b9;
+    --rating-color-background: #c7e1f3;
+    --rating-color-good: #27ae60;
+    --rating-color-meh: #f1c40f;
+    --rating-color-bad: #e74c3c;
+}
+
+.rating::after {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    background: #fff;
+    border-radius: inherit;
+    z-index: 1;
+}
+.rating.small::after {
+    top: 0.3rem;
+    right: 0.3rem;
+    bottom: 0.3rem;
+    left: 0.3rem;
+}
+
+
+.rating.good {
+    background: var(--rating-color-good);
+    color: var(--rating-color-good);
+}
+
+.rating.meh {
+    background: var(--rating-color-meh);
+    color: var(--rating-color-meh);
+}
+
+.rating.bad {
+    background: var(--rating-color-bad);
+    color: var(--rating-color-bad);
+}
+
+
+/* Bar background */
+.rating::before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    border-radius: inherit;
+    box-shadow: 0 0 0 1rem #f6f6f6;
+    z-index:-1;
+}
+
+.rating.small::before {
+    top: 0.3rem;
+    right: 0.3rem;
+    bottom: 0.3rem;
+    left: 0.3rem;
+    box-shadow: 0 0 0 0.3rem #f6f6f6;
 }
