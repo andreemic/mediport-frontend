@@ -159,9 +159,9 @@ function ReportApp() {
                             </div>
                         </div>
                         <div>
-                            <h1 className={`font-semibold text-2xl`}>Summary</h1>
+                            <h1 className={`font-semibold text-2xl mb-2`}>Summary</h1>
                             {report.gpt3_summary?.map((paragraph, idx) => <p key={`summary-${idx}`}
-                                                                             className={"mb-3 p-2"}>
+                                                                             className={"mb-3 p-1 py-0"}>
                                 {paragraph}
                             </p>)}
                             <h1 className={`font-semibold text-2xl`}>Therapy</h1>
