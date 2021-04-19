@@ -114,9 +114,22 @@ function PatientContent({patient}) {
                             )}
                         </div>
                     </div>
+                    {selectedAppointment.notes && <div>
+                        <h2 className={"text-2xl mt-6 font-bold"}>General Notes</h2>
+                        <p>
+                            {selectedAppointment.notes}
+                        </p>
+                    </div>}
 
-                    {<div>
-                        <h2 className={"text-2xl mt-6 font-bold"}>Notes</h2>
+                    {selectedAppointment.intraoral_exam_notes && <div>
+                        <h2 className={"text-2xl mt-6 font-bold"}>Intraoral Exam</h2>
+                        <p>
+                            {selectedAppointment.intraoral_exam_notes}
+                        </p>
+                    </div>}
+
+                    {selectedAppointment.therapy_notes && <div>
+                        <h2 className={"text-2xl mt-6 font-bold"}>Therapy</h2>
                         <p>
                             {selectedAppointment.therapy_notes}
                         </p>
